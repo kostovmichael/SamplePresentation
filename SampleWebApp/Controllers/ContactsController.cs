@@ -23,22 +23,6 @@ namespace SampleWebApp.Controllers
             return _contacts.GetAll();
         }
 
-        #region missing404docs
-        // GET api/contacts/{guid}
-        [HttpGet("{id}", Name = "GetById")]
-        [ProducesResponseType(typeof(Contact), StatusCodes.Status200OK)]
-        public IActionResult Get(string id)
-        {
-            var contact = _contacts.Get(id);
-
-            if (contact == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(contact);
-        }
-        #endregion
 
         // POST api/contacts
         [HttpPost]

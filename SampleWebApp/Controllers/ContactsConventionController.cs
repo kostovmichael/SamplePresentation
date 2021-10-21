@@ -4,13 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SampleWebApp.Controllers
 {
-    #region snippet_ApiConventionTypeAttribute
     [ApiController]
-    [ApiConventionType(typeof(DefaultSampleWebApp))]
     [Route("api/[controller]")]
     public class ContactsConventionController : ControllerBase
     {
-        #endregion
+
         private readonly IContactRepository _contacts;
 
         public ContactsConventionController(IContactRepository contacts)
@@ -51,8 +49,6 @@ namespace SampleWebApp.Controllers
         #region snippet_ApiConventionMethod
         // PUT api/contactsconvention/{guid}
         [HttpPut("{id}")]
-        [ApiConventionMethod(typeof(DefaultSampleWebApp), 
-                             nameof(DefaultSampleWebApp.Put))]
         public IActionResult Update(string id, Contact contact)
         {
             var contactToUpdate = _contacts.Get(id);
